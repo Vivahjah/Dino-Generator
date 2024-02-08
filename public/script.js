@@ -1,9 +1,9 @@
 async function getDinoImage() {
-	const response = await fetch('/dinosaurimage');
+	const response = await fetch('/dinosaurimage'); // fetching data from route
 	const dinoImage = await response.json();
 	console.log(dinoImage);
 
-	let img = document.createElement('img');
+	let img = document.createElement('img'); 
 	img.id = 'dinoImage';
 	img.src = dinoImage[0].urls.regular;
 	img.alt = 'dino-image';
@@ -27,6 +27,8 @@ async function getDinoName() {
 
 
 document.querySelector('#btnLoad').addEventListener('click', () => {
+	// if there is a #dinoName initialize , it removes it
+	//preventing it from duplicate
 	if (document.querySelector('#dinoName') !== null) {
 		document.querySelector('#dinoName').remove();
 	}
